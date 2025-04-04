@@ -6,7 +6,7 @@ Summary:	PEP 517 build backend for packages using Flit
 # Name must match the python module/package name (as on pypi or in 'import' statement)
 Name:		python3-%{module}
 Version:	3.11.0
-Release:	2
+Release:	3
 License:	BSD
 Group:		Libraries/Python
 Source0:	https://pypi.debian.net/flit-core/%{module}-%{version}.tar.gz
