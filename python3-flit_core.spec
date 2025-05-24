@@ -1,9 +1,10 @@
+#
 # Conditional build:
 %bcond_without	tests	# unit tests
 
 %define		module	flit_core
 Summary:	PEP 517 build backend for packages using Flit
-# Name must match the python module/package name (as on pypi or in 'import' statement)
+Summary(pl.UTF-8):	Backend PEP 517 do budowania pakietów przy użyciu Flita
 Name:		python3-%{module}
 Version:	3.11.0
 Release:	3
@@ -30,6 +31,11 @@ This provides a PEP 517 build backend for packages using Flit. The
 only public interface is the API specified by PEP 517, at
 flit_core.buildapi.
 
+%description -l pl.UTF-8
+Ten pakiet dostarcza backend PEP 517 do budowania pakietów przy użyciu
+Flita. Jedynym interfejsem publicznym jest API określone przez PEP
+517, pod flit_core.buildapi.
+
 %prep
 %setup -q -n %{module}-%{version}
 
@@ -37,7 +43,6 @@ flit_core.buildapi.
 %py3_build_pyproject
 
 %if %{with tests}
-# use explicit plugins list for reliable builds (delete PYTEST_PLUGINS if empty)
 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
 PYTEST_PLUGINS=testpath \
 %{__python3} -m pytest tests_core
